@@ -6,7 +6,7 @@ import { FooterNav } from "./nav/footer-nav/footer-nav";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Home, MainNav, FooterNav],
+  imports: [Home, MainNav, FooterNav],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

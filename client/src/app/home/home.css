@@ -1,0 +1,65 @@
+.app-container {
+  display: grid;
+  /* Columns: Sidebar (260px) | Main Chat (all remaining space) */
+  grid-template-columns: 260px 1fr;
+  /* Rows: Nav (auto) | Body (fills screen) | Message (auto) | Footer (auto) */
+  grid-template-rows: auto 1fr auto auto; 
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevents the whole page from scrolling */
+}
+
+/* NAVBAR: Must span the whole width */
+.navbar {
+  grid-column: 1 / -1; /* Spans from column 1 to the very end */
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  background: #fff;
+}
+
+/* SIDEBAR: Occupies only the left column, stays between Nav and Footer */
+.sidebar {
+  grid-column: 1; 
+  grid-row: 2 / span 2; /* Spans the chat and message rows */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.channels-fixed {
+  height: 200px; /* Fixed height as requested */
+  overflow-y: auto;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.users-fixed {
+  flex-grow: 1; /* Fills the rest of the sidebar */
+  overflow-y: auto;
+  padding: 15px;
+}
+
+/* CHAT AREA: The scrollable center */
+.chat-area {
+  grid-column: 2;
+  grid-row: 2;
+  overflow-y: auto;
+  padding: 30px; /* Increased margin for the 'Chat 1, Chat 2' list */
+}
+
+/* MESSAGE AREA: Fixed above the footer */
+.message-area {
+  grid-column: 2;
+  grid-row: 3;
+  padding: 10px 30px;
+  margin-bottom: 40px; /* FIXED: Adds significant space above the footer */
+}
+
+/* FOOTER: Must span the whole width */
+.app-footer {
+  grid-column: 1 / -1; /* Spans the whole page like the navbar */
+  padding: 20px 0;
+  background-color: #212529; /* Dark background per your screenshot */
+  color: white;
+}
