@@ -1,7 +1,27 @@
-<h5 class=" fw-bold mb-4">Channels</h5>
+<span class="fw-bold mb-4">Channels</span>
+<button class="btn btn-warning btn-sm add-btn" (click)="modal.showModal()">+</button>
 
 @for (channel of channels; track channel.id) {
   <div class="channel">
     <app-channel [channel]="channel" />
   </div>
 }
+
+<dialog #modal>
+  <div class="modalForm">
+    <div >Create new Channel</div>
+  
+    <div class="form-group">
+      <div>
+        <input type="text" 
+               name="channel" 
+               [(ngModel)]="channelName"
+               placeholder="channel name" class="input-text" />
+      </div>
+    </div>
+  
+    <button class="btn btn-primary btn-sm mt-2" 
+            (click)="addChannel()">Add</button>
+
+  </div>
+</dialog>

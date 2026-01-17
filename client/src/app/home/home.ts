@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { MainNav } from "../nav/main-nav/main-nav";
+import { Component, OnInit } from '@angular/core';;
 import { Message } from "../message/message";
-import { FooterNav } from "../nav/footer-nav/footer-nav";
 import { Chats } from '../chat-component/chats/chats';
 import { Users } from '../user-component/users/users';
 import { Channels } from '../channel-component/channels/channels';
 import { ChannelModel } from '../channel-component/channel.model';
 import { ChatMessage } from '../chat-component/chat-message.model';
 import { ChatService } from '../services/chat.service';
-import { UserService } from '../services/user.service';
-import { ChatUser } from '../user-component/chat-user.model';
 
 @Component({
   selector: 'app-home',

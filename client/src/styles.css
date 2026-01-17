@@ -4,3 +4,30 @@ html, body {
   margin: 0;
   overflow: hidden;
 }
+
+.add-btn {
+  float: right;
+}
+
+dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  width: 90%;
+  max-width: 500px; 
+  
+ 
+  height: 200px;
+  min-height: 250px; 
+  
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden; 
+}
+
+.modalForm {
+  display: grid;
+  place-content: center; /* Centers everything in both directions */
+  height: 100%;
+  gap: 15px;
+  text-align: center;
+}
