@@ -1,0 +1,6 @@
+@WefiChatServer_HostAddress = http://localhost:5249
+
+GET {{WefiChatServer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
