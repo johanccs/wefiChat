@@ -1,0 +1,12 @@
+.user {
+  height: 30px;
+  padding-left: 15px;
+  padding-top: 3px;
+}
+
+.user:hover {
+  cursor: pointer;
+  background-color: #3c4146;
+  color: white;
+  border-radius: 5px;
+}

@@ -1,24 +1,17 @@
 
 <div class="app-container">
-  <header class="navbar">
-    <app-main-nav />
-  </header>
-  
+ 
   <aside class="sidebar">
     <div class="channels-fixed"><app-channels /></div>
     <div class="users-fixed"><app-users /></div>
   </aside>
   
   <main class="chat-area">
-    <app-chats />
+    <app-chats [chats]="chats" />
   </main>
   
   <section class="message-area">
-    <app-message />
+    <app-message [channelId]="selectChannelId"/>
   </section>
-
-  <footer class="app-footer">
-    <app-footer-nav />
-  </footer>
 
 </div>

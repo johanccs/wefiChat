@@ -1,0 +1,7 @@
+<h5 class=" fw-bold mb-4">Channels</h5>
+
+@for (channel of channels; track channel.id) {
+  <div class="channel">
+    <app-channel [channel]="channel" />
+  </div>
+}

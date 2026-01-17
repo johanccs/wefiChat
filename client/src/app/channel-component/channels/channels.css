@@ -1,0 +1,12 @@
+.channel {
+  height: 30px;
+  padding-left: 15px;
+  padding-top: 3px;
+}
+
+.channel:hover {
+  cursor: pointer;
+  background-color: #3c4146;
+  color: white;
+  border-radius: 5px;
+}

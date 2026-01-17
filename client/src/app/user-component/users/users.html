@@ -1,0 +1,7 @@
+<h5 class="fw-bold mb-4">Users</h5>
+
+@for (user of users; track user.id) {
+  <div class="user">
+    <app-user [user]="user" />
+  </div>
+}

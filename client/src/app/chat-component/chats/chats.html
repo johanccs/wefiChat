@@ -1,0 +1,12 @@
+
+<!-- @for (chat of chats; track chat.id) {
+  <div class="user">
+    <app-chat [chat]="chat" />
+  </div>
+} -->
+
+
+  <div class="user" *ngFor="let chat of chats">
+    <app-chat [chat]="chat" />
+  </div>
+

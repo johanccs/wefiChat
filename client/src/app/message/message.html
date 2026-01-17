@@ -5,7 +5,10 @@
     class="form-control" 
     id="chatMessage" 
     rows="3" 
+    name = "chatMessage"
+    [(ngModel)]="message"
     placeholder="Type your message here...">
   </textarea>
-  <button style="width:100%">Send</button>
+
+  <button style="width:100%" (click)="onSend()">Send</button>
 </div>
