@@ -4,41 +4,35 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-1" value="WefiChat + logo&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Users&amp;nbsp; &amp;nbsp; Groups&amp;nbsp; &amp;nbsp; &amp;nbsp;Login" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
-          <mxGeometry x="80" y="40" width="560" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="1xTFS2RI2mdVhKR1ni4s-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="80" y="80" width="100" height="120" as="geometry" />
         </mxCell>
         <mxCell id="1xTFS2RI2mdVhKR1ni4s-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="200" width="100" height="170" as="geometry" />
+          <mxGeometry x="80" y="200" width="100" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-4" value="&lt;b&gt;Channels&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Accounting&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Dev&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Cloud&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="1xTFS2RI2mdVhKR1ni4s-4" value="&lt;b&gt;Channels&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="100" y="90" width="60" height="100" as="geometry" />
         </mxCell>
         <mxCell id="1xTFS2RI2mdVhKR1ni4s-5" value="&lt;b&gt;Users&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="100" y="204" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-6" value="John&lt;div&gt;&lt;br&gt;&lt;div&gt;Mark&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Alan&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="100" y="234" width="60" height="106" as="geometry" />
-        </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="1xTFS2RI2mdVhKR1ni4s-7" value="Chats" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="181" y="80" width="459" height="289" as="geometry" />
         </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-8" value="&amp;nbsp;Accounting" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="200" y="90" width="270" height="30" as="geometry" />
+        <mxCell id="1xTFS2RI2mdVhKR1ni4s-16" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="181" y="369" width="459" height="71" as="geometry" />
         </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-11" value="Message:&amp;nbsp; Hi" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="160" width="230" height="30" as="geometry" />
+        <mxCell id="1xTFS2RI2mdVhKR1ni4s-17" value="Type message" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="199" y="376" width="420" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-12" value="17-01-2026&amp;nbsp; &amp;nbsp; &amp;nbsp;John" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="130" width="280" height="30" as="geometry" />
+        <mxCell id="1xTFS2RI2mdVhKR1ni4s-18" value="Send button" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#0000CC;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="199" y="406" width="420" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-13" value="17-01-2026&amp;nbsp; &amp;nbsp; &amp;nbsp;Allan" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="204" width="280" height="30" as="geometry" />
+        <mxCell id="1xTFS2RI2mdVhKR1ni4s-19" value="Navbar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="20" width="560" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="1xTFS2RI2mdVhKR1ni4s-14" value="Message:&amp;nbsp; How are you" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="200" y="236" width="230" height="30" as="geometry" />
+        <mxCell id="1xTFS2RI2mdVhKR1ni4s-20" value="Footer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="440" width="560" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
