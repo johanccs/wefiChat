@@ -1,17 +1,33 @@
 import { Injectable } from '@angular/core';
-import { ChatUser } from '../user-component/chat-user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
 
-  private loggedInUser?: ChatUser;
+  getActiveUser() {
 
-  getLoggedInUser() {
+    return localStorage.getItem('activeUser');
+    
+  }
 
-    return this.loggedInUser = { id: 1, name: 'JP' };
+  getActiveChannel() {
 
+    return localStorage.getItem('activeChannel');
+
+  }
+
+  setActiveUser(activeUser: string){
+    return localStorage.setItem('activeUser', activeUser);
+  }
+
+  setActiveChannel(activeChannel: string ){
+    localStorage.setItem('activeChannel', activeChannel);
+  }
+
+  clearTokens(){
+    localStorage.removeItem('activeChannel');
+    localStorage.removeItem('activeUser');
   }
 
 }
