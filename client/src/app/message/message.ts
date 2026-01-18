@@ -25,13 +25,13 @@ export class Message implements OnInit {
 
   ngOnInit(): void {
 
-    this.activeUser = this.userService.getActiveUser() ?? '';
     this.chat = new ChatMessage();
 
   }
 
   onSend() {
 
+    this.activeUser = this.userService.getActiveUser() ?? '';
     this.chat.channelId = this.channelId;
     this.chat.date = new Date();
     this.chat.message = this.message;

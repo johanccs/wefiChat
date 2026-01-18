@@ -7,7 +7,7 @@ import { ChannelModel } from '../channel-component/channel.model';
 })
 export class ChannelApiService {
   
-   private serverApi = 'http://localhost:5000/api'
+  private serverApi = 'http://localhost:5000/api'
 
   constructor(private httpClient: HttpClient){}
 

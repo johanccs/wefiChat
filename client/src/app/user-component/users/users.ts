@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatUser } from '../chat-user.model';
 import { User } from "../user/user";
+import { UserApiService } from '../../services/user-api.service';
 
 @Component({
   selector: 'app-users',
@@ -10,15 +11,15 @@ import { User } from "../user/user";
 })
 export class Users implements OnInit {
 
+  constructor(private userApiService: UserApiService){}  
+  
   users: ChatUser[] = [];
-
 
   ngOnInit(): void {
 
-    this.users.push(
-      new ChatUser({ id: 1, name: 'JP'}),
-      new ChatUser({ id: 2, name: 'Allan'}),
-    );
+    this.userApiService.getUsers().subscribe(data => {
+      this.users = data as ChatUser[];
+    });
 
   }
 }

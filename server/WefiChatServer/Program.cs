@@ -6,6 +6,8 @@ using WefiChatServer.Features.Channels.Entities;
 using WefiChatServer.Features.Channels.Services;
 using WefiChatServer.Features.Chats.Entities;
 using WefiChatServer.Features.Chats.Services;
+using WefiChatServer.Features.Users.Entities;
+using WefiChatServer.Features.Users.Services;
 
 /***Outstanding steps
  * builder.WithOrigins("http://localhost:4200") // Add to appsettings.json
@@ -20,6 +22,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IChatService<Chat>, ChatService>();
 builder.Services.AddScoped<IChannelService<Channel>, ChannelService>();
+builder.Services.AddScoped<IUserSevice<User>, UserService>();
 
 builder.Services.AddSignalR();
 builder.Services.AddCors(config =>

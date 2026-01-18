@@ -14,7 +14,7 @@ namespace WefiChatServer.Controllers
                     ILogger<ChannelController>logger) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<List<Channel>>> GetAll()
+        public async Task<ActionResult<IEnumerable<Channel>>> GetAll()
         {
             var channels = await channelService.GetAllEntities();
 
@@ -52,7 +52,7 @@ namespace WefiChatServer.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var chat = chatService.GetByChannelId(id);
+            var chat = await chatService.GetByChannelId(id);
 
             if(chat is not null)
             {
@@ -61,7 +61,7 @@ namespace WefiChatServer.Controllers
 
             await channelService.DeleteEntity(id);
 
-            return Ok("Record delete");
+            return Ok("Channel deleted");
         }
     }
 }

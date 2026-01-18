@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { UserApiService } from '../../services/user-api.service';
+import { ChatUser } from '../../user-component/chat-user.model';
 
 @Component({
   selector: 'app-main-nav',
@@ -12,11 +14,16 @@ export class MainNav implements OnInit {
 
   @ViewChild('modal') modalElementRef!: ElementRef<HTMLDialogElement>;
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private userApiService: UserApiService){}
   
   isLoggedIn = false;
-  
-  user!: string;
+  isRegisteringNewUser = false;
+
+  modalTitle = 'Login';
+  modalButtonText = 'Login';
+
+  user = '';
+  activeUser = '';
   channel!: string;
   
   ngOnInit(): void {
@@ -30,20 +37,60 @@ export class MainNav implements OnInit {
 
   }
 
+  onRegister(){
+    this.isRegisteringNewUser = true;
+    this.modalTitle = 'New User';
+    this.modalButtonText = 'Register';
+    
+    this.modalElementRef.nativeElement.showModal();
+  }
+
   onLogout(){
     this.isLoggedIn = !this.isLoggedIn;
     this.userService.clearTokens();
   }
 
-  login(){
-    this.isLoggedIn = !this.isLoggedIn;
-
-    this.userService.setActiveChannel(this.channel);
-    this.userService.setActiveUser(this.user);
+  onLogin(){
 
     this.user = '';
     this.channel = '';
+    this.modalTitle = 'Login';
+    this.isRegisteringNewUser = false;
+    this.modalElementRef.nativeElement.showModal();
+  }
 
+  onClick(){
+
+    // This section will allow user to log in
+    if(!this.isRegisteringNewUser) {
+
+      this.userApiService.getUserByName(this.user).subscribe({
+        next: (response) => {
+          this.isLoggedIn = !this.isLoggedIn;
+          this.userService.setActiveChannel(this.channel);
+          this.userService.setActiveUser(this.user);
+          this.activeUser = this.user;      
+        },
+        error: (err) => {
+          this.isLoggedIn = false;
+          alert(`${ err.error.errorMessage }. Please use existing user`);
+        }
+      });
+
+
+    } else {
+      this.isRegisteringNewUser = !this.isRegisteringNewUser;
+      this.userApiService.addUser(new ChatUser({name: this.user})).subscribe({
+        next: (response) => {
+          console.log("User registered successfully");
+        },
+        error: (err) => {
+          alert(`${err.error.errorMessage} : ${err.error.param}`);
+        }
+        
+      })
+    }
+    
     this.modalElementRef.nativeElement.close();
   }
 

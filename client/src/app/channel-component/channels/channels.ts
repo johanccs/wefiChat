@@ -40,6 +40,7 @@ export class Channels implements OnInit {
   onDeleteChannel(id: number){
     this.channels = this.channels.filter(channel => channel.id !== id);
     this.channelService.deleteChannel(id).subscribe(data => {
+      alert(data);
     });
   }
 

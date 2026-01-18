@@ -9,7 +9,7 @@ namespace WefiChatServer.Controllers
     public class ChatController(IChatService<Chat>chatService, ILogger<ChatController>logger) : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult<Chat>> GetAll()
+        public async Task<ActionResult<IEnumerable<Chat>>> GetAll()
         {
             var chats = await chatService.GetAllEntities();
 

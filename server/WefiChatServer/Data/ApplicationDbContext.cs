@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WefiChatServer.Features.Channels.Entities;
 using WefiChatServer.Features.Chats.Entities;
+using WefiChatServer.Features.Users.Entities;
 
 namespace WefiChatServer.Data
 {
@@ -13,5 +14,7 @@ namespace WefiChatServer.Data
         public DbSet<Chat> Chats { get; set; }
 
         public DbSet<Channel> Channels { get; set; }
+
+        public DbSet<User> Users { get; set; }
     }
 }

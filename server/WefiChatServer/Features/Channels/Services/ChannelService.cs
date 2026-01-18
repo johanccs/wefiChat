@@ -7,7 +7,7 @@ namespace WefiChatServer.Features.Channels.Services
     {
         public async Task<Entities.Channel> AddEntity(Entities.Channel entity)
         {
-            await dbContext.AddAsync(entity);
+            await dbContext.Channels.AddAsync(entity);
             await dbContext.SaveChangesAsync();
 
             return entity;

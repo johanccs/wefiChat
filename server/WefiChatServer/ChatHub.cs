@@ -8,13 +8,13 @@ namespace WefiChatServer
     {
         public async Task SendChat(string user, string message)
         {
-            //await chatService.AddEntity(new Chat
-            //{
-            //    ChannelId = 1,
-            //    Date = DateTime.Now,
-            //    Message = message,
-            //    User = user
-            //});
+            await chatService.AddEntity(new Chat
+            {
+                ChannelId = 1,
+                Date = DateTime.Now,
+                Message = message,
+                User = user
+            });
             await Clients.All.SendAsync("ReceiveChat", user, message);
         }
     }

@@ -1,7 +1,4 @@
 ﻿namespace WefiChatServer.Dtos
 {
-    public class NewChannelDto
-    {
-        public string Name { get; set; }
-    }
+    public record NewChannelDto(string Name);
 }

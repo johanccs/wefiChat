@@ -1,7 +1,9 @@
-.main-color {
+.main {
     color: blue;
+    font-size: 13px;
 }
 
-.sub-color {
+.sub {
     color: tomato;
+    font-size: 14px;
 }
