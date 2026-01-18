@@ -22,9 +22,9 @@ namespace WefiChatServer.Features.Chats.Services
             return chats;
         }
 
-        public async Task<Chat?> GetByChannelId(int channelId)
+        public async Task<Chat?> GetByChannelName(string channel)
         {
-            Chat? chat = await dbContext.Chats.Where(c => c.ChannelId == channelId).FirstOrDefaultAsync()!;
+            Chat? chat = await dbContext.Chats.Where(c => c.Channel == channel).FirstOrDefaultAsync()!;
 
             return chat;
         }

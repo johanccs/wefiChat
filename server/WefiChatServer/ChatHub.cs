@@ -6,16 +6,16 @@ namespace WefiChatServer
 {
     public class ChatHub(IChatService<Chat> chatService): Hub
     {
-        public async Task SendChat(string user, string message)
+        public async Task SendChat(string user, string message, string channel)
         {
             await chatService.AddEntity(new Chat
             {
-                ChannelId = 1,
+                Channel = channel,
                 Date = DateTime.Now,
                 Message = message,
                 User = user
             });
-            await Clients.All.SendAsync("ReceiveChat", user, message);
+            await Clients.All.SendAsync("ReceiveChat", user, message, channel);
         }
     }
 }

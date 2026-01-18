@@ -52,13 +52,6 @@ namespace WefiChatServer.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var chat = await chatService.GetByChannelId(id);
-
-            if(chat is not null)
-            {
-                return BadRequest("Cannot delete a channel if it contains chats");
-            }
-
             await channelService.DeleteEntity(id);
 
             return Ok("Channel deleted");

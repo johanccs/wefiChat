@@ -6,7 +6,7 @@
         public required string User { get; set; }
         public required string  Message { get; set; }
         public required DateTime Date { get; set; }
-        public required int ChannelId { get; set; }
+        public required string Channel { get; set; }
 
     }
 }

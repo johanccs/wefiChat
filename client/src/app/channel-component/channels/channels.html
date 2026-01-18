@@ -1,9 +1,15 @@
-<span class="fw-bold mb-4">Channels</span>
-<button class="btn btn-warning btn-sm add-btn" (click)="modal.showModal()">+</button>
+<span class="fw-bold mb-4">
+  Channels
+</span>
+@if(isActiveChannelSet){
+  <span class="default-channel">
+     - (Selected channel: {{activeChannelName}})
+  </span>
+}
 
 <table>
   @for (channel of channels; track channel.id) {
-    <tr>
+    <tr (dblclick)="setActiveChannel(channel.id)" >
       <td class="td-wide channel">
         <app-channel [channel]="channel" />
       </td>
@@ -14,6 +20,8 @@
   }
 
 </table>
+<button class="btn btn-warning btn-sm add-btn mt-4" (click)="modal.showModal()">+</button>
+
 
 <dialog #modal>
   <div class="modalForm">
@@ -23,14 +31,18 @@
       <div>
         <input type="text" 
                name="channel" 
+               class="form-control"
                [(ngModel)]="channelName"
-               placeholder="channel name" class="input-text" />
+               placeholder="channel name" />
       </div>
       
     </div>
   
     <button class="btn btn-primary btn-sm mt-2" 
             (click)="addChannel()">Add</button>
+    
+            <button class="btn btn-light btn-sm" 
+            (click)="modal.close()">Close</button>
 
   </div>
 </dialog>

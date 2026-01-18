@@ -3,6 +3,7 @@ import { ChannelModel } from '../channel.model';
 import { Channel } from '../channel/channel';
 import { FormsModule } from '@angular/forms';
 import { ChannelApiService } from '../../services/channel-api.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-channels',
@@ -14,27 +15,33 @@ export class Channels implements OnInit {
   
   channels: ChannelModel[] = [];
   channelName!: string;
+  activeChannelName = '';
+  isActiveChannelSet = false;
+
   @ViewChild('modal') modalElement!: ElementRef<HTMLDialogElement>;
   
   ngOnInit(): void {
     
-    this.channelService.getChannels().subscribe(data => {
-      this.channels = data as ChannelModel[];
-    });
+    this.getChannels();
 
   }
 
-  constructor(private channelService: ChannelApiService){}
+  constructor(private channelService: ChannelApiService, private userService: UserService){}
 
   addChannel(){
     if(!this.channelName) return;
 
     this.channelService.addChannel(new ChannelModel({name: this.channelName})).subscribe(data => {
-      this.channels.push(new ChannelModel({id: 3, name: this.channelName}));
-      
+     this.getChannels();
     });
 
     this.modalElement.nativeElement.close();
+  }
+
+  getChannels(){
+    this.channelService.getChannels().subscribe(data => {
+      this.channels = data as ChannelModel[];
+    });
   }
 
   onDeleteChannel(id: number){
@@ -42,6 +49,16 @@ export class Channels implements OnInit {
     this.channelService.deleteChannel(id).subscribe(data => {
       alert(data);
     });
+  }
+
+  setActiveChannel(channelId: number){
+    const activeChannel = this.channels.find(channel => channel.id === channelId);
+
+    if(activeChannel){
+      this.userService.setActiveChannel(activeChannel.name);
+      this.activeChannelName = activeChannel.name;
+      this.isActiveChannelSet = true;
+    }
   }
 
 }

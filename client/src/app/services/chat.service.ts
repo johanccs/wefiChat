@@ -20,12 +20,12 @@ export class ChatService {
         .catch(err => console.error('Connection not established', err));
   }
 
-  sendChat(user: string, message: string){
-    this.hubConnection.invoke('SendChat', user, message)
+  sendChat(user: string, message: string, channel: string){
+    this.hubConnection.invoke('SendChat', user, message, channel)
       .catch(err => console.log(err));
   }
 
-  receiveChatEventListener(callback: (user: string, message: string) => void) {
+  receiveChatEventListener(callback: (user: string, message: string, channel: string) => void) {
     this.hubConnection.on("ReceiveChat", callback);
   };
 

@@ -28,8 +28,8 @@ export class Home implements OnInit {
     this.selectChannelId = new ChannelModel().id;
 
     this.chatService.startConnection();
-    this.chatService.receiveChatEventListener((user, message) => {
-      this.chats.push({ id: 0, channelId: 1, date: new Date(), message: message, user: user })
+    this.chatService.receiveChatEventListener((user, message,channel) => {
+      this.chats.push({ id: 0, channel: channel, date: new Date(), message: message, user: user })
     });
   }
 }
