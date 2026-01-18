@@ -1,11 +1,19 @@
 <span class="fw-bold mb-4">Channels</span>
 <button class="btn btn-warning btn-sm add-btn" (click)="modal.showModal()">+</button>
 
-@for (channel of channels; track channel.id) {
-  <div class="channel">
-    <app-channel [channel]="channel" />
-  </div>
-}
+<table>
+  @for (channel of channels; track channel.id) {
+    <tr>
+      <td class="td-wide channel">
+        <app-channel [channel]="channel" />
+      </td>
+      <td>
+        <label (click)="onDeleteChannel(channel.id)" class="remove-link">remove</label>
+      </td>
+    </tr>
+  }
+
+</table>
 
 <dialog #modal>
   <div class="modalForm">
@@ -18,6 +26,7 @@
                [(ngModel)]="channelName"
                placeholder="channel name" class="input-text" />
       </div>
+      
     </div>
   
     <button class="btn btn-primary btn-sm mt-2" 

@@ -1,11 +1,14 @@
 
-<!-- @for (chat of chats; track chat.id) {
-  <div class="user">
+
+<button class="btn btn-secondary btn-small mb-2" (click)="onLoad()">Load history</button>
+
+  <div>History</div>
+  
+  <div *ngFor="let chat of history" class="history">
     <app-chat [chat]="chat" />
   </div>
-} -->
 
-
+  <div>Current chats</div>
   <div class="user" *ngFor="let chat of chats">
     <app-chat [chat]="chat" />
   </div>

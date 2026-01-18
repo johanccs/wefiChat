@@ -1,10 +1,25 @@
+using Microsoft.EntityFrameworkCore;
+using System;
 using WefiChatServer;
+using WefiChatServer.Data;
+using WefiChatServer.Features.Channels.Entities;
+using WefiChatServer.Features.Channels.Services;
+using WefiChatServer.Features.Chats.Entities;
+using WefiChatServer.Features.Chats.Services;
+
+/***Outstanding steps
+ * builder.WithOrigins("http://localhost:4200") // Add to appsettings.json
+ * Add global exception
+ ***/
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IChatService<Chat>, ChatService>();
+builder.Services.AddScoped<IChannelService<Channel>, ChannelService>();
 
 builder.Services.AddSignalR();
 builder.Services.AddCors(config =>
@@ -18,12 +33,16 @@ builder.Services.AddCors(config =>
     });
 });
 
+builder.Services.AddDbContext<ApplicationDbContext>(config =>
+{
+    config.UseSqlite(builder.Configuration.GetConnectionString("Default"));
+});
 
 var app = builder.Build();
 
 app.UseCors();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -25,7 +25,6 @@ export class Message implements OnInit {
   ngOnInit(): void {
 
     this.user = this.userService.getLoggedInUser();
-    // this.chat = {channelId: 0, date: '', id: 1, message: '', user: this.user};
     this.chat = new ChatMessage();
 
   }
@@ -35,10 +34,10 @@ export class Message implements OnInit {
     this.chat.channelId = this.channelId;
     this.chat.date = new Date();
     this.chat.message = this.message;
-    this.chat.user.id = this.user.id;
-    this.chat.user.name = this.user.name;
+    this.chat.user = this.user.name;
 
-    this.chatService.sendChat(this.chat.user.name, this.message);
+    this.chatService.sendChat(this.chat.user, this.message);
+    this.message = '';
   }
 
 }

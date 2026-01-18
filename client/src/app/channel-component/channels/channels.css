@@ -11,3 +11,17 @@
   border-radius: 5px;
 }
 
+.td-wide {
+  width: 100%;
+}
+
+.remove-link {
+  font-size: 11px;
+  color: red;
+  cursor: pointer;
+}
+
+.remove-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
