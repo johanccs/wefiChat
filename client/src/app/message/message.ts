@@ -39,8 +39,14 @@ export class Message implements OnInit {
     this.chat.message = this.message;
     this.chat.user = this.activeUser;
 
-    this.chatService.sendChat(this.chat.user, this.message, this.chat.channel);
+    if(this.activeChannel){
+      this.chatService.sendDirectChat(this.chat.channel, this.chat.user, this.message);
+    } else {
+      this.chatService.sendChat(this.chat.user, this.message, this.chat.channel);
+    }
+
     this.message = '';
   }
 
 }
+``

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { UserApiService } from '../../services/user-api.service';
 import { ChatUser } from '../../user-component/chat-user.model';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -14,7 +15,10 @@ export class MainNav implements OnInit {
 
   @ViewChild('modal') modalElementRef!: ElementRef<HTMLDialogElement>;
 
-  constructor(private userService: UserService, private userApiService: UserApiService){}
+  constructor(
+    private userService: UserService, 
+    private userApiService: UserApiService, 
+    private chatService: ChatService){}
   
   isLoggedIn = false;
   isRegisteringNewUser = false;
@@ -33,8 +37,8 @@ export class MainNav implements OnInit {
 
     if(this.user && this.channel){
       this.isLoggedIn = true;
+      this.activeUser = this.user;
     }
-
   }
 
   onRegister(){
@@ -69,7 +73,9 @@ export class MainNav implements OnInit {
           this.isLoggedIn = !this.isLoggedIn;
           this.userService.setActiveChannel(this.channel);
           this.userService.setActiveUser(this.user);
-          this.activeUser = this.user;      
+          this.activeUser = this.user;
+
+          this.chatService.joinChannel(this.channel);
         },
         error: (err) => {
           this.isLoggedIn = false;
@@ -87,7 +93,6 @@ export class MainNav implements OnInit {
         error: (err) => {
           alert(`${err.error.errorMessage} : ${err.error.param}`);
         }
-        
       })
     }
     

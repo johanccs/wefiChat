@@ -4,6 +4,7 @@ import { Channel } from '../channel/channel';
 import { FormsModule } from '@angular/forms';
 import { ChannelApiService } from '../../services/channel-api.service';
 import { UserService } from '../../services/user.service';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-channels',
@@ -26,7 +27,10 @@ export class Channels implements OnInit {
 
   }
 
-  constructor(private channelService: ChannelApiService, private userService: UserService){}
+  constructor(
+    private channelService: ChannelApiService, 
+    private userService: UserService, 
+    private chatService: ChatService){}
 
   addChannel(){
     if(!this.channelName) return;
@@ -58,6 +62,9 @@ export class Channels implements OnInit {
       this.userService.setActiveChannel(activeChannel.name);
       this.activeChannelName = activeChannel.name;
       this.isActiveChannelSet = true;
+
+      this.chatService.joinChannel(activeChannel.name);
+      alert("Channel joined");
     }
   }
 

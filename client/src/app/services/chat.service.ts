@@ -20,6 +20,16 @@ export class ChatService {
         .catch(err => console.error('Connection not established', err));
   }
 
+  joinChannel(channel: string){
+    this.hubConnection.invoke('JoinChannel', channel)
+    .catch(err => console.error("Error joining group: " + err));
+  }
+
+  sendDirectChat(channel: string, user: string, message: string){
+    this.hubConnection.invoke("SendChatToChannel", channel, user, message)
+      .catch(err => console.error(err));
+  }
+
   sendChat(user: string, message: string, channel: string){
     this.hubConnection.invoke('SendChat', user, message, channel)
       .catch(err => console.log(err));
