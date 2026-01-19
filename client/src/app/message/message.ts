@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { ChatUser } from '../user-component/chat-user.model';
-import { ChannelModel } from '../channel-component/channel.model';
 import { UserService } from '../services/user.service';
 import { ChatMessage } from '../chat-component/chat-message.model';
 import { FormsModule } from '@angular/forms';
@@ -49,4 +48,3 @@ export class Message implements OnInit {
   }
 
 }
-``
